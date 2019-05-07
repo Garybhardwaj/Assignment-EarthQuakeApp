@@ -1,0 +1,28 @@
+
+<h2 *ngIf="noDataMessage">No Data Available, please try relaoding this page !</h2>
+<div  class="col-md-12 row ">
+<div  class="col-md-3 leftBar" >
+
+  <div id="{{'listitem'+i}}" class="col-md-12 row listitem "(click)="selectFeature(obj)" *ngFor="let obj of ListofResobj;let i=index;">
+   <div class="col-md-7 placeClass">
+     <p> {{obj.place}} </p>
+
+   <p> {{obj.time | date:'medium' }} </p>
+    </div>
+ 
+    <div class="col-md-5 magclass">
+      <p> {{obj.type}} <i style="margin-left: 15px;color:black;" class="fas fa-greater-than"></i></p>
+ 
+      <br/>
+   
+     <p>Magnitude: {{obj.magnitude}} </p> 
+    </div>
+    <hr style="size:5px;color: grey "/>
+  </div>
+  
+</div>
+<div style="height: 600px;" class="col-md-9 " leaflet 
+[leafletOptions]="leafletoptions" 
+[leafletLayersControl]="layersControl"  (leafletMapReady)="onMapReady($event)" >
+</div>
+</div>
