@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
       }// Following code shows the error message if there is some error from API end
     }, (error) => {
       this.noDataMessage = true;
-      console.log("Error occured while fetching data from API", error);
+      //console.log("Error occured while fetching data from API", error);
       ;
     })
   }
@@ -95,7 +95,7 @@ export class DashboardComponent implements OnInit {
     this.onMapReady = (map: Leaf.Map) => {
 
       this.leafletMap = map;
-      console.log(this.GeoMarkersLayers)
+     // console.log(this.GeoMarkersLayers)
       if (this.GeoMarkersLayers)
         this.leafletMap.addLayer(this.GeoMarkersLayers);
 
@@ -105,7 +105,7 @@ export class DashboardComponent implements OnInit {
   /* This method provides functionality of clicking list item from left side bar ,
   takes selected item as input and flies map to the particular marker on map*/
   selectFeature(res: EQApiResponse) {
-    console.log(res);
+   // console.log(res);
     this.leafletMap.flyTo(res.location, 8)
   }
 
