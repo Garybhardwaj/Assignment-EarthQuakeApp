@@ -22,11 +22,12 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
     component = fixture.componentInstance;
   }));
-
+// To test the existance of component
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  // this method to test clicking of item from left side bar 
     
 it('should call the method on clicking item from List of features', async(() => {
 const fixture = TestBed.createComponent(DashboardComponent);

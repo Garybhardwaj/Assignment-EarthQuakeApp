@@ -27,8 +27,7 @@ export class DashboardComponent implements OnInit {
     // This service is called to fetch Geo Data from API and below we bind the incoming data to List and Map 
     this.geoService.fetchGeoData().subscribe(res => {
 
-      if (res && res.features) 
-      {
+      if (res && res.features) {
         this.noDataMessage = false;
         res.features.forEach(element => {
           let EQobj: EQApiResponse = {
@@ -53,9 +52,9 @@ export class DashboardComponent implements OnInit {
         );
 
       }
-      else{
-        this.noDataMessage=true;
-      }
+      else {
+        this.noDataMessage = true;
+      }// Following code shows the error message if there is some error from API end
     }, (error) => {
       this.noDataMessage = true;
       console.log("Error occured while fetching data from API", error);
@@ -74,6 +73,7 @@ export class DashboardComponent implements OnInit {
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
       detectRetina: true
     })
+    // Below code gives default configuration to the map
     this.leafletoptions = {
       layers: [
         this.streetMapLayer, this.cycleMapLayer
@@ -83,7 +83,7 @@ export class DashboardComponent implements OnInit {
       zoom: 2,
       center: Leaf.latLng(38.954027, -88.626217)
     };
-
+    // Below code provides the Street and cycle layers to the map
     this.layersControl = {
       baseLayers: {
         'Open Street Map': this.streetMapLayer,
@@ -91,6 +91,7 @@ export class DashboardComponent implements OnInit {
       }
 
     }
+    // Below code responsible for adding markers to the map on loading of map
     this.onMapReady = (map: Leaf.Map) => {
 
       this.leafletMap = map;
@@ -101,6 +102,8 @@ export class DashboardComponent implements OnInit {
 
     }
   }
+  /* This method provides functionality of clicking list item from left side bar ,
+  takes selected item as input and flies map to the particular marker on map*/
   selectFeature(res: EQApiResponse) {
     console.log(res);
     this.leafletMap.flyTo(res.location, 8)

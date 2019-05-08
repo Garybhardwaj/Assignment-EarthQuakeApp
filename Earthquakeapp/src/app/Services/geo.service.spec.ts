@@ -11,7 +11,7 @@ describe('GeoService', () => {
     });
     injectableService = TestBed.get(Injectable);
   });
-
+// To test the instance of GeoService is created
   it('should be created', inject(
     [Injectable], (injectService: Injectable) => {
       expect(injectService).toBe(injectableService);
